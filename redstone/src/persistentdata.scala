@@ -5,7 +5,7 @@ import scala.collection.Map
 
 class ComparatorIc extends PersistentDataType[Array[Byte], (Int, Int) => Int]{
   override def getPrimitiveType: Class[Array[Byte]] = {
-    (Array[Byte].getClass.asInstanceOf[Class[Array[Byte]]]
+    (Array[Byte]()).getClass.asInstanceOf[Class[Array[Byte]]]
   }
   override def getComplexType: Class[(Int, Int) => Int] = {
     ((x:Int, y:Int) => 0).getClass.asInstanceOf[Class[(Int, Int) => Int]]
