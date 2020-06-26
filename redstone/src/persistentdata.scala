@@ -30,7 +30,7 @@ class ComparatorIc extends PersistentDataType[Array[Byte], (Int, Int) => Int]{
     import java.io.{ByteArrayInputStream, ObjectInputStream}
     val bais = new ByteArrayInputStream(primitive)
     val reader = new ObjectInputStream(bais)
-    val rtn = reader.readObject.asInstanceOf[Int => Int]
+    val rtn = reader.readObject.asInstanceOf[(Int,Int) => Int]
     reader.close
     bais.close
     rtn
