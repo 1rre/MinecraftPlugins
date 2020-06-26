@@ -19,8 +19,8 @@ class ComparatorIc extends PersistentDataType[Array[Byte], (Int, Int) => Int]{
     val writer = new ObjectOutputStream(baos)
     writer.writeObject(complex)
     writer.close
-    val rtn = os.toByteArray
-    os.close
+    val rtn = baos.toByteArray
+    baos.close
     rtn
   }
   override def fromPrimitive(
