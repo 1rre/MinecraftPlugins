@@ -1,9 +1,0 @@
-{
-    "value": [
-        "ref:1b186898:/home/tm/Documents/Spigot/mill/redstone/resources",
-        "ref:aec96b89:/home/tm/Documents/Spigot/mill/redstone/lib/spigot-api-1.16.1-R0.1-20200625.101234-13.jar",
-        "qref:caf2cff2:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.2/scala-library-2.13.2.jar"
-    ],
-    "valueHash": -1798003693,
-    "inputsHash": 1940452277
-}
