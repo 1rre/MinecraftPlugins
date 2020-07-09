@@ -1,0 +1,51 @@
+[0m[[0m[0minfo[0m] [0m[0mCompiling 429 Java sources to /home/tm/Documents/Spigot/mill/out/mcMMO/compile/dest/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/datatypes/player/McMMOPlayer.java:54:1: package org.apache.commons.lang does not exist[0m
+[0m[[0m[31merror[0m] [0m[0morg.apache.commons.lang.Validate[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/util/experience/ExperienceBarManager.java:10:1: package org.jetbrains.annotations does not exist[0m
+[0m[[0m[31merror[0m] [0m[0morg.jetbrains.annotations.NotNull[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/util/experience/ExperienceBarManager.java:11:1: package org.jetbrains.annotations does not exist[0m
+[0m[[0m[31merror[0m] [0m[0morg.jetbrains.annotations.Nullable[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/mcMMO.java:53:1: package org.bstats.bukkit does not exist[0m
+[0m[[0m[31merror[0m] [0m[0morg.bstats.bukkit.Metrics[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/skills/mining/MiningManager.java:20:1: package org.apache.commons.lang.math does not exist[0m
+[0m[[0m[31merror[0m] [0m[0morg.apache.commons.lang.math.RandomUtils[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/config/mods/CustomEntityConfig.java:5:1: package org.apache.commons.lang does not exist[0m
+[0m[[0m[31merror[0m] [0m[0morg.apache.commons.lang.ClassUtils[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/util/experience/ExperienceBarManager.java:149:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class NotNull[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class com.gmail.nossr50.util.experience.ExperienceBarManager[0m
+[0m[[0m[31merror[0m] [0m[0mNotNull[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/commands/skills/AcrobaticsCommand.java:12:1: package net.md_5.bungee.api.chat does not exist[0m
+[0m[[0m[31merror[0m] [0m[0mnet.md_5.bungee.api.chat.TextComponent[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/commands/skills/SkillCommand.java:22:1: package net.md_5.bungee.api does not exist[0m
+[0m[[0m[31merror[0m] [0m[0mnet.md_5.bungee.api.ChatColor[0m
+[0m[[0m[31merror[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/commands/skills/SkillCommand.java:23:1: package net.md_5.bungee.api.chat does not exist[0m
+[0m[[0m[31merror[0m] [0m[0mnet.md_5.bungee.api.chat.TextComponent[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/commands/skills/SkillCommand.java:270:1: non-varargs call of varargs method with inexact argument type for last parameter;[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object for a varargs call[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object[] for a non-varargs call and to suppress this warning[0m
+[0m[[0m[33mwarn[0m] [0m[0mvars[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/commands/skills/SkillCommand.java:274:1: non-varargs call of varargs method with inexact argument type for last parameter;[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object for a varargs call[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object[] for a non-varargs call and to suppress this warning[0m
+[0m[[0m[33mwarn[0m] [0m[0mmergedList[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/util/player/NotificationManager.java:228:1: non-varargs call of varargs method with inexact argument type for last parameter;[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object for a varargs call[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object[] for a non-varargs call and to suppress this warning[0m
+[0m[[0m[33mwarn[0m] [0m[0maddItemToFirstPositionOfArray(senderName, args)[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/util/player/NotificationManager.java:229:1: non-varargs call of varargs method with inexact argument type for last parameter;[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object for a varargs call[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object[] for a non-varargs call and to suppress this warning[0m
+[0m[[0m[33mwarn[0m] [0m[0margs[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/util/player/NotificationManager.java:232:1: non-varargs call of varargs method with inexact argument type for last parameter;[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object for a varargs call[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object[] for a non-varargs call and to suppress this warning[0m
+[0m[[0m[33mwarn[0m] [0m[0maddItemToFirstPositionOfArray(senderName, args)[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/util/player/NotificationManager.java:233:1: non-varargs call of varargs method with inexact argument type for last parameter;[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object for a varargs call[0m
+[0m[[0m[33mwarn[0m] [0m[0m  cast to java.lang.Object[] for a non-varargs call and to suppress this warning[0m
+[0m[[0m[33mwarn[0m] [0m[0margs[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/skills/acrobatics/AcrobaticsManager.java: Some input files use or override a deprecated API.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/skills/acrobatics/AcrobaticsManager.java: Recompile with -Xlint:deprecation for details.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/commands/database/ConvertDatabaseCommand.java: /home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/commands/database/ConvertDatabaseCommand.java uses unchecked or unsafe operations.[0m
+[0m[[0m[0minfo[0m] [0m[0m/home/tm/Documents/Spigot/mill/mcMMO/src/main/java/com/gmail/nossr50/commands/database/ConvertDatabaseCommand.java: Recompile with -Xlint:unchecked for details.[0m

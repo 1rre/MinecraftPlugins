@@ -1,0 +1,16 @@
+{
+    "value": [
+        "ref:c984eca8:/home/tm/Documents/Spigot/mill/mcMMO/resources",
+        "ref:4058402e:/home/tm/Documents/Spigot/mill/mcMMO/lib/spigot-api-1.16.1-R0.1-20200625.101234-13.jar",
+        "qref:1914f99d:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.10/commons-lang3-3.10.jar",
+        "qref:2ea2525e:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/guava/guava/29.0-jre/guava-29.0-jre.jar",
+        "qref:90a959c6:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+        "qref:ae152f94:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+        "qref:f5ce58df:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+        "qref:7ef2413b:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/checkerframework/checker-qual/2.11.1/checker-qual-2.11.1.jar",
+        "qref:a9545918:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar",
+        "qref:2f123d7a:/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar"
+    ],
+    "valueHash": -579194153,
+    "inputsHash": 787829362
+}

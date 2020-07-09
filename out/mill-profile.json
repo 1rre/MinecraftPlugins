@@ -1,0 +1,152 @@
+[
+    {
+        "label": "redstone.resources",
+        "millis": 3,
+        "cached": false
+    },
+    {
+        "label": "mill.scalalib.ZincWorkerModule.compilerInterfaceClasspath",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "mill.scalalib.ZincWorkerModule.classpath",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "mill.scalalib.ZincWorkerModule.worker",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "redstone.upstreamCompileOutput",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.sources",
+        "millis": 3,
+        "cached": false
+    },
+    {
+        "label": "redstone.generatedSources",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.allSources",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.allSourceFiles",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "redstone.transitiveLocalClasspath",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.unmanagedClasspath",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.scalaVersion",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.platformSuffix",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "redstone.compileIvyDeps",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.scalaOrganization",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.scalaLibraryIvyDeps",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "redstone.ivyDeps",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.transitiveIvyDeps",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "redstone.compileClasspath",
+        "millis": 21,
+        "cached": false
+    },
+    {
+        "label": "redstone.javacOptions",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.scalacOptions",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.scalaCompilerClasspath",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "redstone.scalacPluginIvyDeps",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.scalacPluginClasspath",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.compile",
+        "millis": 36,
+        "cached": false
+    },
+    {
+        "label": "redstone.localClasspath",
+        "millis": 2,
+        "cached": false
+    },
+    {
+        "label": "redstone.mainClass",
+        "millis": 1,
+        "cached": true
+    },
+    {
+        "label": "redstone.finalMainClassOpt",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.manifest",
+        "millis": 0,
+        "cached": true
+    },
+    {
+        "label": "redstone.jar",
+        "millis": 13,
+        "cached": false
+    }
+]

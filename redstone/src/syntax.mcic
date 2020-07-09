@@ -26,7 +26,6 @@ literals:
   [15-(inf)]    //if mode is analogue, 15,    or if mode is digital true
 
 constants:
-  in    //repeater input
   in_1  //comparator side input
   in_2  //comparator back input
-  out   //output
+

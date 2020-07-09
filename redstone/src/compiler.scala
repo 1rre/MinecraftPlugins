@@ -10,11 +10,6 @@ import plugin.Plugin
 object CompileBook{
   import McIcRegex._
   import Error._
-  def getAllIfs(allText: String): List[Any] = {
-    /*if(IF_STATEMENT.matches(allText)) println("allText")
-    else println(allText)*/
-    List()
-  }
   def compileComparator(book: BookMeta, comparator: Comparator, plugin: Plugin):String = {
     if(book.getTitle == "++CODE--"){
       val lines = book.getPages.toArray.foldLeft(Array[String]())((acc, v) => {
@@ -32,24 +27,22 @@ object CompileBook{
       val allText = lines.tail.tail.mkString("\n")
       val splitAtRun = allText.split("\n#run\n")
       val initLines = if(lines(1)=="#init") splitAtRun(0) else ""
-      val runLines = {
-        if(splitAtRun.length == 2){
+      val runLines = if(splitAtRun.length == 2){
           splitAtRun(1)
         }
         else if(lines.exists(_ == "#run")){
-          //RUN CODE HERE
+          "0"
         }
         else {
           return errors(ERROR_NO_RUN)
         }
-      }
       if(initLines != ""){
         val exitCode = comparatorInit(initLines.split('\n'), analogue, comparator, plugin)
         if(exitCode != 0){
           return errors(exitCode)
         }
       }
-      val functionAndExitCode = comparatorFunction(lines)
+      val functionAndExitCode = comparatorFunction(runLines, analogue, comparator, plugin)
       def exitCode = functionAndExitCode._1
       def  function = functionAndExitCode._2
       if(exitCode >= 0){
@@ -67,7 +60,6 @@ object CompileBook{
     if(initLines.forall(line => {
       VAL_INIT_DECLARATION.matches(line) || VAL_LITERAL_DECLARATION.matches(line)
     })){
-      println("0")
       val variables = initLines.map(line => line match{
         case VAL_LITERAL_DECLARATION(_*) => {
           val declaration = line.drop(4).split(" = ")
@@ -85,7 +77,6 @@ object CompileBook{
           (valName, valInt)
         }
         case VAL_INIT_DECLARATION(_*) => {
-          println("1")
           def valName = line.drop(4)
           (valName, "0")
         }
@@ -95,10 +86,6 @@ object CompileBook{
       variables.foreach(variable => {
         val NSK = new NamespacedKey(plugin, variable._1)
         comparator.getPersistentDataContainer.set(NSK, PersistentDataType.STRING,variable._2)
-        println("stored " + variable._2 + " as " + variable._1)
-        println("Check: " + comparator.getPersistentDataContainer.get(NSK, PersistentDataType.STRING))
-        println(variable._1)
-        println(variable._2)
       })
       val NSK = new NamespacedKey(plugin, "val")
       val vals = variables.map(_._1).mkString("\n")
@@ -109,11 +96,15 @@ object CompileBook{
       ERROR_INIT_DECLARATION
     }
   }
-
-  def comparatorFunction(lines: Array[String]): (Int, (Int, Int, Map[String, Int]) => Int) = {
-    
-
-    return(-1, (a: Int, b: Int, variables: Map[String, Int]) => 0)
+  def splitIfs(lines: String): Array[Any] = {
+    println(IF_STATEMENT.findPrefixOf(lines).get)
+    Array("")
+  }
+  def comparatorFunction(lines: String, analogue: Boolean, comparator: Comparator, plugin: Plugin): (Int, (Int, Int, Map[String, Int]) => Int) = {
+    val splitLines = splitIfs(lines)
+    (-1, ((in_1: Int, in_2: Int, variables: Map[String, Int]) => {
+      0
+    }))
   }
 }
 
@@ -121,8 +112,9 @@ object McIcRegex {
   //Mode Declarations
   val DIGITAL_DECLARATION = "using digital".r
   val ANALOGUE_DECLARATION = "using ((analogue)|(analog))".r
-  //If Statement
-  val IF_STATEMENT = "if[(](-?[0-9]+)|([a-zA-z]+) == (-?[0-9]+)|([a-zA-z]+)[)]\\{\n.*\n\\}".r.unanchored
+  //Statements
+  val IF_STATEMENT = "if[(](-?[0-9]+)|([a-zA-z]+) == (-?[0-9]+)|([a-zA-z]+)[)]\\{\n(.*)\n\\}".r
+  val RETURN_STATEMENT = "[a-zA-Z]+".r
   //Declarations & Operators
   val VAL_INIT_DECLARATION = "val [a-zA-Z]+".r
   val VAL_ADD_OR_DECLARATION = "val [a-zA-Z]+ = (-?[0-9]+)|([a-zA-z]+) + (-?[0-9]+)|([a-zA-z]+)".r

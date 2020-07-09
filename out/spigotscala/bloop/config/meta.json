@@ -1,0 +1,120 @@
+{
+    "value": {
+        "version": "1.1.2",
+        "project": {
+            "name": "spigotscala",
+            "directory": "/home/tm/Documents/Spigot/mill/spigotscala",
+            "workspaceDir": [
+                "/home/tm/Documents/Spigot/mill"
+            ],
+            "sources": [
+                "/home/tm/Documents/Spigot/mill/spigotscala/src"
+            ],
+            "dependencies": [
+                
+            ],
+            "classpath": [
+                "/home/tm/Documents/Spigot/mill/spigotscala/lib/spigot-api-1.16.1-R0.1-20200625.101234-13.jar",
+                "/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.2/scala-library-2.13.2.jar"
+            ],
+            "out": "/home/tm/Documents/Spigot/mill/.bloop/out/spigotscala",
+            "classesDir": "/home/tm/Documents/Spigot/mill/.bloop/out/spigotscala/classes",
+            "resources": [
+                [
+                    "/home/tm/Documents/Spigot/mill/spigotscala/resources"
+                ]
+            ],
+            "scala": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-compiler",
+                    "version": "2.13.2",
+                    "options": [
+                        
+                    ],
+                    "jars": [
+                        "/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.2/scala-library-2.13.2.jar",
+                        "/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/jline/jline/3.14.1/jline-3.14.1.jar",
+                        "/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.13.2/scala-reflect-2.13.2.jar",
+                        "/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/net/java/dev/jna/jna/5.3.1/jna-5.3.1.jar",
+                        "/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.13.2/scala-compiler-2.13.2.jar"
+                    ],
+                    "analysis": [
+                        
+                    ],
+                    "setup": [
+                        
+                    ]
+                }
+            ],
+            "java": [
+                {
+                    "options": [
+                        
+                    ]
+                }
+            ],
+            "sbt": [
+                
+            ],
+            "test": [
+                
+            ],
+            "platform": [
+                {
+                    "$type": "bloop.config.Config.Platform.Jvm",
+                    "config": {
+                        "$type": "bloop.config.Config.JvmConfig",
+                        "home": [
+                            
+                        ],
+                        "options": [
+                            "-Duser.dir=/home/tm/Documents/Spigot/mill"
+                        ]
+                    },
+                    "mainClass": [
+                        
+                    ]
+                }
+            ],
+            "resolution": [
+                {
+                    "modules": [
+                        {
+                            "organization": "org.scala-lang",
+                            "name": "scala-library",
+                            "version": "2.13.2",
+                            "configurations": [
+                                
+                            ],
+                            "artifacts": [
+                                {
+                                    "name": "scala-library",
+                                    "classifier": [
+                                        
+                                    ],
+                                    "checksum": [
+                                        
+                                    ],
+                                    "path": "/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.2/scala-library-2.13.2.jar"
+                                },
+                                {
+                                    "name": "scala-library",
+                                    "classifier": [
+                                        "sources"
+                                    ],
+                                    "checksum": [
+                                        
+                                    ],
+                                    "path": "/home/tm/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.13.2/scala-library-2.13.2-sources.jar"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "valueHash": -1652840419,
+    "inputsHash": 1241646030
+}

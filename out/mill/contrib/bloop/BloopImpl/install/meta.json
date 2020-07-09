@@ -1,0 +1,18 @@
+{
+    "value": [
+        [
+            "elevator",
+            "ref:0731d70b:/home/tm/Documents/Spigot/mill/.bloop/elevator.json"
+        ],
+        [
+            "redstone",
+            "ref:d8ced5f4:/home/tm/Documents/Spigot/mill/.bloop/redstone.json"
+        ],
+        [
+            "spigotscala",
+            "ref:477e6a0e:/home/tm/Documents/Spigot/mill/.bloop/spigotscala.json"
+        ]
+    ],
+    "valueHash": -2141795577,
+    "inputsHash": -297254453
+}

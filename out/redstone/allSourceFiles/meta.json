@@ -1,0 +1,10 @@
+{
+    "value": [
+        "ref:d443d7a4:/home/tm/Documents/Spigot/mill/redstone/src/debug.scala",
+        "ref:b2fbc72d:/home/tm/Documents/Spigot/mill/redstone/src/main.scala",
+        "ref:e4415997:/home/tm/Documents/Spigot/mill/redstone/src/compiler.scala",
+        "ref:bcb1b88b:/home/tm/Documents/Spigot/mill/redstone/src/persistentdata.scala"
+    ],
+    "valueHash": 935444688,
+    "inputsHash": -401116058
+}
