@@ -1,0 +1,31 @@
+mode declaration:
+  using digital //Sets the mode to digital
+  using analogue //Sets the mode to analogue
+  using analog //Sets the mode to analogue
+
+if statement:
+  if(a == b){ //if a and b are equal
+    //CODE
+  }
+
+operators:
+  a + b //if mode is analogue, a + b,   or if mode is digital a || b    aka "a or b"
+  a * b //if mode is analogue, a * b,   or if mode is digital a && b    aka "a and b"
+  a - b //if mode is analogue, a - b,   or if mode is digital a XOR b   aka "a xor b"
+  a / b //if mode is analogue, a / b,   or if mode is digital !(a && b) aka "a nand b"
+  !(a)    //if mode is analogue, a == 0,  or if mode is digital !a        aka "not a"
+
+declarations:
+  val a = b //Create an immutable value "a" with value b. This is stored with the circuit.
+
+literals:
+  [(-1)-(-inf)] //if mode is analogue, 0,     or if mode is digital true
+  0             //if mode is analogue, 0,     or if mode is digital false
+  1             //if mode is analogue, 1,     or if mode is digital true
+  [2-14]        //if mode is analogue, [2-14] or if mode is digital true
+  [15-(inf)]    //if mode is analogue, 15,    or if mode is digital true
+
+constants:
+  in_1  //comparator side input
+  in_2  //comparator back input
+
