@@ -2,7 +2,7 @@
 A spigot plugin for Minecraft which allows for 'comparators' and 'repeators' to be programmed using books.  
   
 ## Development State  
-The functionality which changes the behaviours of the redstone components is fully implemented, however currently the compiler can only understand very basic instructions.  
+The functionality which changes the behaviours of the redstone components is fully implemented, however currently the compiler can only understand very basic instructions (no code blocks, if statements can only be a single instruction long and no loops currently)
   
 ## Files  
 The syntax for programming the redstone components can be found in [syntax.mcic](/redstone/src/syntax.mcic)  
