@@ -1,4 +1,4 @@
-# MinecraftPlugins
+# Redstone Integrated Circuits
 A spigot plugin for Minecraft which allows for 'comparators' and 'repeators' to be programmed using books.
 
 ## Development State
