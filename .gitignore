@@ -4,3 +4,5 @@ elevator/*
 .metals/*
 .vscode/*
 spigotscala/*
+server
+.scalafmt.conf

@@ -1,0 +1,15 @@
+-mode digital % Sets mode to digital
+-mode analog % Sets mode to digital
+-mode analogue % Sets mode to digital
+
+-input a
+-output c
+
+-init
+a <- b,
+c <- d,
+-if
+a = c
+c <- 0;
+d = c
+c <- 1.

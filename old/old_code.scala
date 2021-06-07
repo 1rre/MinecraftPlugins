@@ -1,5 +1,3 @@
-package re._1r.spigot
-
 import org.bukkit._
 import plugin.java.JavaPlugin
 import event.{Listener, EventHandler}
@@ -11,34 +9,23 @@ import plugin.Plugin
 import inventory.meta.ItemMeta
 
 
-class RedstoneICs extends JavaPlugin{
-  override def onEnable = {
-    println("Loaded TJ's Redstone Plugin")
-    getServer.getPluginManager.registerEvents(
-      new BookClickListener(this), this
-    )
-    getServer.getPluginManager.registerEvents(
-      new RedstoneIcListener, this
-    )
-  }
-}
+
 class BookClickListener(plugin: Plugin) extends Listener{
   @EventHandler
   def ComparatorBookClick(event: PlayerInteractEvent) = {
-    if(event.getAction == Action.RIGHT_CLICK_BLOCK){
-      import compilation.CompileBook.compileComparator
+    if(event.getAction == Action.RIGHT_CLICK_BLOCK) {
       import inventory.meta.BookMeta
       import block.Comparator
       val msg = event.getClickedBlock.getState match {
         case comparator: Comparator => {
           event.getItem.getItemMeta match {
             case book: BookMeta => {
-              compileComparator(book, comparator, plugin)
+
               val NSK = new NamespacedKey(plugin, "val")
               import persistence.PersistentDataType
               comparator.getPersistentDataContainer.get(NSK, PersistentDataType.STRING).toString
             }
-            case item: ItemMeta => debug.Debug.getVariables(comparator, plugin)
+            //case item: ItemMeta => debug.Debug.getVariables(comparator, plugin)
             case _ => "Not a book or item"
           }
         }
@@ -49,6 +36,7 @@ class BookClickListener(plugin: Plugin) extends Listener{
     }
   }
 }
+
 class RedstoneIcListener extends Listener{
   @EventHandler
   def ComparatorRedstoneLightup(event: BlockRedstoneEvent) = {

@@ -1,12 +1,8 @@
 name: RedstoneICs
-main: re._1r.spigot.RedstoneICs
-depend: [ScalaForBukkit]
+main: es.tmoor.minecraft.RedstoneICs
 version: 1.0
 api-version: 1.13
 commands:
-  set:
-    desciption: Set Metadata
-    usage: /<command>
-  get:
-    desciption: Get Metadata
+  compile:
+    desciption: Compile the contents of a held book & assign them to the book
     usage: /<command>

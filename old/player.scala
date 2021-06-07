@@ -1,17 +1,15 @@
+import org.bukkit._
+import persistence._
+import command._
+import plugin._
+import org.bukkit.entity._
+
 class PlayerName extends PersistentDataType[String, String]{
   def apply = this.asInstanceOf[PersistentDataType[String, String]]
-  def getPrimitiveType: Class[String] = {
-    "".getClass.asInstanceOf[Class[String]]
-  }
-  def getComplexType: Class[String] = {
-    "".getClass.asInstanceOf[Class[String]]
-  }
-  def toPrimitive(x: String, context: PersistentDataAdapterContext): String = {
-    x
-  }
-  def fromPrimitive(x: String, context: PersistentDataAdapterContext): String = {
-    x
-  }
+  def getPrimitiveType: Class[String] = classOf[String]
+  def getComplexType: Class[String] = classOf[String]
+  def toPrimitive(x: String, context: PersistentDataAdapterContext): String = x
+  def fromPrimitive(x: String, context: PersistentDataAdapterContext): String = x
   
 }
 class PlayerDataGet(plugin:Plugin) extends CommandExecutor{

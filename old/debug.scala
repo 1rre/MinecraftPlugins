@@ -7,8 +7,8 @@ import block.Comparator
 import scala.collection.Map
 import plugin.Plugin
 
-object Debug{
-  def getVariables(comparator: Comparator, plugin: Plugin):String = {
+object Debug {
+  def getVariables(comparator: Comparator, plugin: Plugin): String = {
     val NSK = new NamespacedKey(plugin, "val")
     var rtn = ""
     comparator.getPersistentDataContainer.get(NSK, PersistentDataType.STRING).split('\n').foreach(variable => {
