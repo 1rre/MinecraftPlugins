@@ -1,49 +1,47 @@
-package es.tmoor.minecraft.listeners
+package es.tmoor.minecraft
+package listeners
 
 import org.bukkit.event.{Listener, EventHandler}
 import org.bukkit.event.inventory.PrepareItemCraftEvent
 import org.bukkit.inventory.{ShapelessRecipe, ItemStack}
-import org.bukkit.Material.{REPEATER, WRITTEN_BOOK}
+import org.bukkit.Material.{COMPARATOR, WRITTEN_BOOK, WRITABLE_BOOK}
 import org.bukkit.inventory.CraftingInventory
 import org.bukkit.inventory.meta.BookMeta
+import org.bukkit.NamespacedKey
 
-import es.tmoor.minecraft.CompileBook
+import data.ICData
 
 import scala.jdk.CollectionConverters._
 import scala.util.parsing.input.CharSequenceReader
+import org.bukkit.plugin.Plugin
 
-class ICPrepareCraftListener extends Listener {
-
-  def compileBook(inv: CraftingInventory) = {
-    val players = inv.getViewers.asScala
-    players.foreach(_.sendMessage("Compiling book..."))
-    inv.iterator.asScala.collect {
-      case book if Option(book.getType) == Some(WRITTEN_BOOK) => {
-        val meta = book.getItemMeta.asInstanceOf[BookMeta]
-      }
-    }
-  }
-
+class ICPrepareCraftListener(plugin: Plugin) extends Listener {
   @EventHandler
   def onPrepareCraft(event: PrepareItemCraftEvent) = {
-    val players = event.getViewers.asScala
-    def items = event.getInventory.iterator.asScala.filterNot(_ == null).toList
+    def inventory = event.getInventory
+    def players = event.getViewers.asScala
+    val items = inventory.iterator.asScala.filterNot(_ == null).toList
     def bookCollector: PartialFunction[List[ItemStack], Unit] = {
       case (a: ItemStack) :: (b: ItemStack) :: Nil
-          if Option(a.getType) == Some(REPEATER) && Option(b.getType) == Some(WRITTEN_BOOK) => {
-        val meta = b.getItemMeta.asInstanceOf[BookMeta]
-        val pages = meta.getPages.asScala
+          if Option(a.getType) == Some(COMPARATOR) && a.getAmount == 1
+            && Option(b.getType) == Some(WRITTEN_BOOK) && b.getAmount == 1 => {
+        val book = b.getItemMeta.asInstanceOf[BookMeta]
+        val pages = book.getPages.asScala
         val input = CharSequenceReader(pages.mkString("\n"))
         val result = CompileBook.Program(input)
         players.foreach(_.sendMessage(s"$result"))
-        println(result)
-        import collection.mutable.HashMap
-        for (i <- 0 to 15 if result.successful) {
-          val in = result.get.input.name
-          val out = result.get.output.name
-          val vars = HashMap(in->i)
-          players.foreach(_.sendMessage(s"When $in = $i:\n$out = ${result.get.init.get.runner(vars);vars.getOrElseUpdate(out,0)}"))
-        }
+        result.map(prog => {
+          val item = ItemStack(COMPARATOR, 1)
+          val meta = item.getItemMeta
+          inventory.setResult(item)
+          val nsk = NamespacedKey(plugin, "program")
+          val pdc = ICData()
+          meta.getPersistentDataContainer.set(nsk, pdc, prog)
+          meta.setDisplayName("Integrated Circuit")
+          meta.setLore(List("program").asJava)
+          item.setItemMeta(meta)
+          inventory.setResult(item)
+        })
       }
       case _ =>
     }

@@ -19,6 +19,8 @@ import es.tmoor.minecraft.CompileBook.Operation
 import es.tmoor.minecraft.CompileBook.LoopDeclaration
 import es.tmoor.minecraft.CompileBook.Construct
 import es.tmoor.minecraft.CompileBook.ValueNoOp
+import scala.annotation.varargs
+import org.bukkit.scheduler.BukkitRunnable
 
 object CompileBook extends RegexParsers {
   override def skipWhitespace = true
@@ -30,7 +32,7 @@ object CompileBook extends RegexParsers {
 
   abstract trait ModeDeclaration extends Token
 
-  trait ComparatorRunner {
+  trait ICRunner {
     def resolveValue(v: Value, vars: HashMap[String,Int]): Int = v match {
       case IntValue(i) => i
       case Variable(s) => vars.getOrElseUpdate(s, 0)
@@ -56,7 +58,7 @@ object CompileBook extends RegexParsers {
       case IntValue(i) => i
       case o: Operation => o(resolveValue(o.l,vars),resolveValue(o.r,vars))
     }
-    val runner: (HashMap[String,Int] => _)
+    val runner: (HashMap[String,Int] => Int)
   }
 
   object AnalogueModeDeclaration extends ModeDeclaration with Construct[ModeDeclaration] {
@@ -67,7 +69,7 @@ object CompileBook extends RegexParsers {
     def parser = "-" ~ Mode ~ Analogue ~ "." ^^^ this
   }
 
-  case class InitDeclaration(statements: Seq[Statement]) extends Token with ComparatorRunner {
+  case class InitDeclaration(statements: Seq[Statement]) extends Token with ICRunner {
     val runner = (init: HashMap[String,Int]) => resolveStatementSeq(statements, init)
   }
   object InitDeclaration extends Construct[InitDeclaration] {
@@ -84,7 +86,7 @@ object CompileBook extends RegexParsers {
     def parser = "-" ~ Input ~> Variable <~ "." ^^ (InputDeclaration(_))
   }
 
-  case class LoopDeclaration(statements: Seq[Statement]) extends Token with ComparatorRunner {
+  case class LoopDeclaration(statements: Seq[Statement]) extends Token with ICRunner {
     val runner = (state: HashMap[String,Int]) => resolveStatementSeq(statements, state)
   }
   object LoopDeclaration extends Construct[LoopDeclaration] {
@@ -92,15 +94,11 @@ object CompileBook extends RegexParsers {
   }
 
   case class Program(input: Variable, output: Variable, init: Option[InitDeclaration], loop: Option[LoopDeclaration]) extends Token {
-    val initialMap = {
-      val map = HashMap[String,Int]()
-      init.map(_.runner(map))
-      map
-    }
-    def apply(i: Int): Int = {
-      initialMap += input.name -> i
-      loop.map(_.runner(initialMap))
-      initialMap.getOrElseUpdate(output.name,0)
+    val variables = HashMap[String,Int]()
+    init.map(_.runner(variables))
+    def run(i: Int) = {
+      variables(input.name) = i
+      loop.map(_.runner(variables)).getOrElse(0)
     }
 
   }
