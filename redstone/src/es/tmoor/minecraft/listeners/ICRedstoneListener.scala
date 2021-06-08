@@ -21,8 +21,6 @@ class ICRedstoneListener(plugin: Plugin) extends Listener {
       println(s"input: $i0")
       val result = program.run(i0)
       println(s"result: $result")
-      println(s"vars: ${program.variables}")
-      event.updateProgram(program)
       event.setPower(result)
     } else {
       println((event.getBlock,event.hasProgram))

@@ -13,8 +13,12 @@ import data.ICData
 import event.ICUpdateEvent
 import java.io.File
 import java.io.FileOutputStream
+import collection.mutable.HashMap
+import es.tmoor.minecraft.CompileBook.Program
+import org.bukkit.Material
 
 class RedstoneICs extends JavaPlugin {
+  val programs = HashMap[Location,Program]()
   val configFile = File(this.getDataFolder.getAbsolutePath ++ "/ic.bin")
   if (!configFile.exists) {
     configFile.getParentFile.mkdirs
@@ -51,7 +55,12 @@ class RedstoneICs extends JavaPlugin {
   override def onEnable = {
     getLocations.foreach(loc => {
       println(s"loading $loc")
+      val lcn = Location(getServer.getWorld(loc._4),loc._1,loc._2,loc._3)
+      val block = lcn.getBlock
       val plugin = this
+      if (block.getType == Material.COMPARATOR) {
+        programs += lcn -> block.getState.asInstanceOf[Comparator].getPersistentDataContainer.get(NamespacedKey(plugin, "program"),ICData())
+      }
       val updater = new BukkitRunnable {
         val upEvent = new ICUpdateEvent(Location(getServer.getWorld(loc._4),loc._1,loc._2,loc._3), plugin)
         def run = {

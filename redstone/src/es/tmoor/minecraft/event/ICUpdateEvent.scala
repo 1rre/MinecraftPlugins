@@ -13,24 +13,24 @@ import org.bukkit.Material.REDSTONE_WIRE
 import data.ICData
 import org.bukkit.event.Cancellable
 import es.tmoor.minecraft.CompileBook.Program
+import org.bukkit.block.data.AnaloguePowerable
+import org.bukkit.block.data.Powerable
 
 
 object ICUpdateEvent {
   var handlers: HandlerList = new HandlerList()
   def getHandlerList: HandlerList = handlers
 }
-class ICUpdateEvent(location: Location, p: Plugin) extends Event with Cancellable {
+class ICUpdateEvent(location: Location, p: RedstoneICs) extends Event with Cancellable {
   import ICUpdateEvent._
   def getHandlers: HandlerList = handlers
 
-  def getBlock = location.getBlock
+  val getBlock = location.getBlock
   def isCancelled = isComparator
   def setCancelled(b: Boolean) = {}
 
   def isComparator = Option(getBlock.getState).collect {
-    case b: ComparatorState => {
-      b.update(true)
-    }
+    case b: ComparatorState => true
   } == Some(true)
 
   def getState = getBlock.getState
@@ -40,20 +40,10 @@ class ICUpdateEvent(location: Location, p: Plugin) extends Event with Cancellabl
     ICData()
   )
 
-  def getProgram = getState.asInstanceOf[ComparatorState].getPersistentDataContainer.get (
-    NamespacedKey(p, "program"),
-    ICData()
-  )
-  def updateProgram(prog: Program) = {
-    getState.asInstanceOf[ComparatorState].getPersistentDataContainer.set (
-      NamespacedKey(p, "program"),
-      ICData(),
-      prog
-    )
-    getState.update(true)
-  }
+  def getProgram = p.programs(location)
 
   def getData = getBlock.getBlockData.asInstanceOf[ComparatorData]
+
 
   def getInputs = getData.getFacing match {
     case NORTH =>
@@ -68,9 +58,63 @@ class ICUpdateEvent(location: Location, p: Plugin) extends Event with Cancellabl
   }
 
   def setPower(i: Int) = {
-    val dat = getBlock.getBlockData.asInstanceOf[ComparatorData]
-    dat.setPowered(i>0)
-    getBlock.setBlockData(dat)
+    getData.getFacing match {
+      case NORTH => {
+        val lcn = location.clone.add(0,0,1)
+        lcn.getBlock.getBlockData match {
+          case data: Powerable => {
+            data.setPowered(i > 0)
+            lcn.getBlock.setBlockData(data,true)
+          }
+          case data: AnaloguePowerable => {
+            data.setPower(i)
+            lcn.getBlock.setBlockData(data,true)
+          }
+          case bd => println(bd)
+        }
+      }
+      case EAST => {
+        val lcn = location.clone.add(1,0,0)
+        lcn.getBlock.getBlockData match {
+          case data: Powerable => {
+            data.setPowered(i > 0)
+            lcn.getBlock.setBlockData(data,true)
+          }
+          case data: AnaloguePowerable => {
+            data.setPower(i)
+            lcn.getBlock.setBlockData(data,true)
+          }
+          case bd => println(bd)
+        }
+      }
+      case SOUTH => {
+        val lcn = location.clone.add(0,0,-1)
+        lcn.getBlock.getBlockData match {
+          case data: Powerable => {
+            data.setPowered(i > 0)
+            lcn.getBlock.setBlockData(data,true)
+          }
+          case data: AnaloguePowerable => {
+            data.setPower(i)
+            lcn.getBlock.setBlockData(data,true)
+          }
+          case bd => println(bd)
+        }
+      }
+      case WEST => {
+        val lcn = location.clone.add(-1,0,0)
+        lcn.getBlock.getBlockData match {
+          case data: Powerable => {
+            data.setPowered(i > 0)
+            lcn.getBlock.setBlockData(data,true)
+          }
+          case data: AnaloguePowerable => {
+            data.setPower(i)
+            lcn.getBlock.setBlockData(data,true)
+          }
+          case bd => println(bd)
+        }
+      }
+    }
   }
-
 }
