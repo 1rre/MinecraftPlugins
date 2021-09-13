@@ -10,3 +10,10 @@ The (unfinished) compiler can be found in [compiler.scala](redstone/src/compiler
 The functions which allow the functionality of the programmed redstone component to be saved as block data can be found in [persistentdata.scala](/redstone/src/persistentdata.scala) and [debug.scala](/redstone/src/debug.scala)  
 The function which allows the user to program a redstone component using a signed book can be found in [main.scala](/redstone/src/main.scala)  
 The functions which allow a programmed redstone component to keep its functionality in the inventory can be found in [player.scala](redstone/src/player.scala)  
+
+## Example
+A sample program:  
+![Example Program](redstone_ic_example.png)
+This gives the output:  
+
+https://user-images.githubusercontent.com/54404449/133078606-d099535a-5bda-4ca2-ae06-7866df01b999.mp4
